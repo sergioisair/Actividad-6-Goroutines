@@ -15,7 +15,7 @@ func main()  {
 	canal <- false
 	for opc != 4 {
 		if(!bandera){
-      fmt.Println("Bienvenido al Administrador de Procesos")
+      fmt.Println("\n\nBienvenido al Administrador de Procesos")
       fmt.Println("1- Agregar Proceso")
       fmt.Println("2- Mostrar Proceso")
       fmt.Println("3- Terminar Proceso")
@@ -31,6 +31,7 @@ func main()  {
         fmt.Printf("AGREGADO CORRECTAMENTE \n")
         break
       case 2:
+        fmt.Print("MOSTRANDO PROCESOS (ingrese 2 para No Mostrar)\n")
         mostrar := <- canal
         if mostrar {
           canal <- false
@@ -48,6 +49,9 @@ func main()  {
         procesos[i+1].stop()
         break
       case 4:
+        break
+      default:
+        fmt.Print("OPCION INCORRECTA")
         break
     }
 	}
